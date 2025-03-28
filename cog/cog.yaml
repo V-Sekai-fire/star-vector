@@ -1,0 +1,19 @@
+build:
+  gpu: true
+  system_packages:
+    - "python3-pip"
+    - "git"
+    - "libgl1-mesa-glx"
+    - "libglib2.0-0"
+    - "xvfb"
+    - "libcairo2"
+  python_version: "3.11.3"
+  python_packages:
+    - "torch==2.5.1"
+    - "deepspeed"
+  run:
+    - pip install --upgrade pip
+    - pip install packaging
+    - pip install flash-attn
+    - pip install git+https://github.com/joanrod/star-vector.git@de98330a1f3e39b7eac8397d4302e75318c807d6
+predict: "predict.py:Predictor"
